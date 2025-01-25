@@ -1,5 +1,5 @@
 body {
-    background-image: url('wildwest.jpg');
+    background-image: url('/images/wildwest.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
