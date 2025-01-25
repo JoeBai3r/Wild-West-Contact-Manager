@@ -4,22 +4,25 @@
 		<meta charset="UTF-8">
 	 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>COP4331 Small Project</title>
-		<link rel="stylesheet" href="cop4331.css">
-		
+		<link rel="stylesheet" href="/css/styles.css">
 	</head>
 	<body>
-		<h1 id="projectTitle">COP4331 Small Project</h1>
-		<br>
-		<h2 id="logInTitle">Login</h2>
-		<br><br>
-		<form action="index.html">
-			<input type="text" id="Login Username" name="Login Username" placeholder="Username"/><br><br>
-			<input type="text" id="Login Password" name="Login Password" placeholder="Password"/><br><br>
-  			<input type="submit">
-		</form> 
-		<br>
-		<a href="signup.html" id="signUpLink">Click here to sign up</a>
-
-</div>
+		<br />
+		<h1>COP4331 Small Project</h1>
+		<br />
+		<h2>
+			<b>Login</b>
+		</h2>
+		<form id="loginForm" onsubmit="return doLogin();">
+			<input type="text" id="Login Name" name="username" placeholder="Username" required />
+			<input type="password" id="Login Password" name="password" placeholder="Password" required />
+			<button type="submit" id="Login Button" class="buttons">Submit</button>
+			<input type="Login Submit">
+		</form>
+		<br />
+		<a href="/signup.html">Click here to sign up</a>
+		<br />
+		<br />
+		<a href="/contacts.html">To Contacts page</a>
 	</body>
 </html>
