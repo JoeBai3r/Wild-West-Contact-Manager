@@ -5,23 +5,25 @@
 	  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>COP4331 Small Project</title>
 		<link rel="stylesheet" href="/css/styles.css">
+		<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 	</head>
 	<body>
-		<br />
-		<h1>COP4331 Small Project</h1>
-		<br />
+		<a href="index.html">
+			<img src="images/logo.jpg" id="logo" alt="Wild west themed logo with link to home page" title="Home Page">
+		</a>
+		<h1 id="title">COP4331 Small Project</h1>
 		<h2>
 			<b>Sign Up</b>
 		</h2>
 		<form action="/index.html">
-  			<input type="text" id="Signup First Name" name="Signup First Name"placeholder="First Name"/>
-  			<input type="text" id="Signup Last Name" name="Signup Last Name" placeholder="Last Name"/>
-			<input type="text" id="Signup Username" name="Signup Username" placeholder="Username"/>
-			<input type="text" id="Signup Password" name="Signup Password" placeholder="Password"/>
-  			<input type="Signup Submit">
+  			<input type="text" id="Signup First Name" name="Signup First Name"placeholder="First Name" required />
+  			<input type="text" id="Signup Last Name" name="Signup Last Name" placeholder="Last Name" required />
+			<input type="text" id="Signup Username" name="Signup Username" placeholder="Username" required />
+			<input type="text" id="Signup Password" name="Signup Password" placeholder="Password" required />
+  			<input type="submit">
 		</form> 
 		<br />
-		<a href="/index.html">Back to home page</a>
+		<a href="index.html" id="link" title="Home Page">Back to home page</a>
 </div>
 	</body>
 </html>
