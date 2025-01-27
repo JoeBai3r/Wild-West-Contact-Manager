@@ -4,13 +4,13 @@ hello folks
 
 # API Testing:
 
-login: use existing login and password from user
+LOGIN: use existing login and password from user
 {
     "Login" : "",
     "Password" : ""
 }
 
-register: new user information
+REGISTER: new user information
 {
     "FirstName" : "",
     "LastName" : "",
@@ -18,13 +18,13 @@ register: new user information
     "Password" : "" 
 }
 
-search contacts: searches by userID if they exist in User table, returns array of JSO objects (contacts that the user has created)
+SEARCH CONTACTS: searches by userID if they exist in User table, returns array of JSO objects (contacts that the user has created)
 {
     "UserID" : "",
     "search" : ""
 }
 
-add contact: adds new contact information if the userID belongs to an existing user
+ADD CONTACT: adds new contact information if the userID belongs to an existing user
 {
     "FirstName" : "",
     "LastName" : "",
@@ -32,13 +32,13 @@ add contact: adds new contact information if the userID belongs to an existing u
     "Email" : "",
     "UserId" : "" 
 }
-delete contact: finds the cooresponding userID and contact ID to find contact to delete
+DELETE CONTACT: finds the cooresponding userID and contact ID to find contact to delete
 {
     "ID" : "",
     "UserID" : ""
 }
 
-edit contact: edits the contact from the given contact ID 
+EDIT CONTACT: edits the contact from the given contact ID 
 {
     "ID" : "",
     "FirstName" : "",
