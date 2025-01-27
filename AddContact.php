@@ -6,7 +6,7 @@
 	$Email = $inData["Email"];
 	$Phone = $inData["Phone"];
 	$ID = $inData["ID"];
-	$UserId = $inData["UserId"];
+	$UserID = $inData["UserID"];
 
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
 	if ($conn->connect_error) 
@@ -16,15 +16,15 @@
 	else
 	{
 		$stmt = $conn->prepare("SELECT COUNT(*) FROM Users WHERE ID = ?");
-		$stmt->bind_param("s", $UserId);
+		$stmt->bind_param("s", $UserID);
 		$stmt->execute();
 		$stmt->bind_result($count);
 		$stmt->fetch();
 		$stmt->close();
 		
 		if ($count > 0) {
-			$stmt = $conn->prepare("INSERT INTO Contacts (FirstName,LastName,Phone,Email,UserId) VALUES(?,?,?,?,?)");
-			$stmt->bind_param("sssss", $FirstName, $LastName, $Phone, $Email, $UserId);
+			$stmt = $conn->prepare("INSERT INTO Contacts (FirstName,LastName,Phone,Email,UserID) VALUES(?,?,?,?,?)");
+			$stmt->bind_param("sssss", $FirstName, $LastName, $Phone, $Email, $UserID);
 			$stmt->execute();
 			$stmt->close();
 			$conn->close();
