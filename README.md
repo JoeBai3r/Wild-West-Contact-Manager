@@ -32,6 +32,7 @@ ADD CONTACT: adds new contact information if the userID belongs to an existing u
     "Email" : "",
     "UserId" : "" 
 }
+
 DELETE CONTACT: finds the cooresponding userID and contact ID to find contact to delete
 {
     "ID" : "",
