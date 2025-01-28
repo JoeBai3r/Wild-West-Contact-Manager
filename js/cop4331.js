@@ -1,4 +1,4 @@
-const urlBase = 'http://cop4331-contact-manager-lampstack.online';
+const urlBase = 'http://cop4331-contact-manager-lampstack.online/LAMPAPI';
 const extension = 'php';
 
 let userId = 0;
@@ -152,3 +152,4 @@ function readCookie() {
         document.getElementById("userName").innerHTML = "Welcome, " + userFirstName + " " + userLastName + "!";
     }
 }
+
