@@ -1,23 +1,39 @@
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
 	 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>COP4331 Small Project</title>
-		<link rel="stylesheet" href="/css/styles.css">
-		<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+		<link rel="stylesheet" href="styles.css">
+		<link rel="icon" type="image/x-icon" href="favicon.ico">
 	</head>
 	<body>
 		<a href="index.html">
-			<img src="images/logo.jpg" id="logo" alt="Wild west themed logo with link to home page" title="Home Page">
+			<img src="logo.jpg" id="logo" alt="Wild west themed logo with link to home page" title="Home Page">
 		</a>
-		<span class="header">COP4331 Small Project</span>
-		<div style="text-align: center;">
-			<b class="pageName">Contacts</b>
+		<h1 id="title">Midwest Contact Manager</h1>
+		<h2>
+			<b>Contacts</b>
+		</h2>
+		
+		<div id="loggedInDiv">
+			<span id="userName"></span><br />
+			<button type="button" id="logoutButton" class="buttons" onclick="doLogout();"> Log Out </button>
 		</div>
-		<br />
-		<div style="text-align: center;">
-			<a href="index.html" class="links" title="Home Page">Back to home page</a>
+
+		<div id="accessUIDiv">
+			<br />
+		
+			<input type="text" id="searchText" placeholder="Contact To Search For"/>
+			<button type="button" id="searchContactButton" class="buttons" onclick="searchColor();"> Search Contact </button><br />
+			<span id="contactSearchResult"></span>
+			<p id="contactList">
+			</p><br /><br />
+		
+			<input type="text" id="contactText" placeholder="Contact To Add">
+			<button type="button" id="addContactButton" class="buttons" onclick="addContact();"> Add Contact </button><br />
+			<span id="contactAddResult"></span>
 		</div>
 	</body>
 </html>
