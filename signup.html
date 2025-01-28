@@ -1,32 +1,32 @@
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
 	  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>COP4331 Small Project</title>
-		<link rel="stylesheet" href="/css/styles.css">
-		<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+		<script type="javascript" src="code.js"></script>
+		<link rel="stylesheet" href="styles.css">
+		<link rel="icon" type="image/x-icon" href="favicon.ico">
 	</head>
 	<body>
 		<a href="index.html">
-			<img src="images/logo.jpg" id="logo" alt="Wild west themed logo with link to home page" title="Home Page">
+			<img src="logo.jpg" id="logo" alt="Wild west themed logo with link to home page" title="Home Page">
 		</a>
-		<span class="header">COP4331 Small Project</span>
-		<div style="text-align: center;">
-			<b class="pageName">Sign Up</b>
-		</div>
+		<h1 id="title">Midwest Contact Manager</h1>
+		<h2 id="signupTitle">
+			<b>Sign Up</b>
+		</h2>
+		<div id="signupSection">
+  			<input type="text" id="signupFirstName" placeholder="First Name" required />
+  			<input type="text" id="signupLastName" placeholder="Last Name" required />
+			<input type="text" id="signupUsername" placeholder="Username" required />
+			<input type="password" id="signupPassword" placeholder="Password" required />
+			<button type="button" id="submitSignup" class="buttons" onclick="signupFunc();"> Submit </button>
+			<span class="text" id="signupResult"></span>
+		</div> 
 		<br />
-		<form id="signUpForm" onsubmit="return signupFunc();">
-  			<input type="text" id="fname" name="fname"placeholder="First Name" required />
-  			<input type="text" id="lname" name="lname" placeholder="Last Name" required />
-			<input type="text" id="Username" name="Username" placeholder="Username" required />
-			<input type="text" id="Password" name="Password" placeholder="Password" required />
-  			<input type="submit" id="signupResult">
-		</form> 
-		<br />
-		<div style="text-align: center;">
-			<a href="index.html" class="links" title="Home Page">Back to home page</a>
-		</div>
+	
 </div>
 	</body>
 </html>
