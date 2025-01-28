@@ -1,11 +1,12 @@
 <?php
 	$inData = getRequestInfo();
+
 	
 	$FirstName = $inData["FirstName"];
 	$LastName = $inData["LastName"];
 	$Login = $inData["Login"];
 	$Password = $inData["Password"];
-	$ID = $inData["ID"];
+	$hashedPassword = password_hash($Password, PASSWORD_DEFAULT);
 
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
 	if ($conn->connect_error) 
@@ -14,8 +15,9 @@
 	} 
 	else
 	{
-		$stmt = $conn->prepare("INSERT into Users (ID,FirstName,LastName,Login,Password) VALUES(?,?,?,?,?)");
-		$stmt->bind_param("sssss", $ID, $FirstName, $LastName, $Login, $Password);
+		echo "Connected to database";
+		$stmt = $conn->prepare("INSERT into Users (FirstName,LastName,Login,Password) VALUES(?,?,?,?)");
+		$stmt->bind_param("ssss", $FirstName, $LastName, $Login, $hashedPassword);
 		$stmt->execute();
 		$stmt->close();
 		$conn->close();
