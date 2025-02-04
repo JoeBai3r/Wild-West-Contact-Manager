@@ -1,7 +1,7 @@
 # LAMP-stack-project-POOS
-<div align="center">
-  ![logo](https://github.com/user-attachments/assets/6f3b4bf3-960a-4392-ba9d-7b8fb2d98854)
-</div>
+
+![logo](https://github.com/user-attachments/assets/6f3b4bf3-960a-4392-ba9d-7b8fb2d98854)
+
 
 hello folks
 
