@@ -1,6 +1,6 @@
 # LAMP-stack-project-POOS
 <div align="center">
-  <img src="(https://github.com/user-attachments/assets/d4ee29bd-34f2-4ac0-9294-efa7b68f6fa3)">
+  ![logo](https://github.com/user-attachments/assets/6f3b4bf3-960a-4392-ba9d-7b8fb2d98854)
 </div>
 
 hello folks
