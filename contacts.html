@@ -5,35 +5,75 @@
 		<meta charset="UTF-8">
 	 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>COP4331 Small Project</title>
-		<link rel="stylesheet" href="styles.css">
-		<link rel="icon" type="image/x-icon" href="favicon.ico">
+		<script type="text/javascript" src="js/code.js"></script> <!-- js/code.js -->
+		<link rel="stylesheet" href="css/styles.css"> 
+		<link rel="icon" type="image/x-icon" href="css/images/favicon.ico"> <!-- css/images/favicon.ico -->
+		<script type="text/javascript">
+			document.addEventListener('DOMContentLoaded', function() 
+			{
+				readCookie();
+			}, false);
+		</script>
 	</head>
+
 	<body>
 		<a href="index.html">
-			<img src="logo.jpg" id="logo" alt="Wild west themed logo with link to home page" title="Home Page">
+			<!-- css/images/logo.jpg -->
+			<img src="css/images/logo.jpg" id="logo" alt="Wild west themed logo with link to home page" title="Home Page">
 		</a>
-		<h1 id="title">Midwest Contact Manager</h1>
+		<h1 id="title">Wildwest Contact Manager</h1>
 		<h2>
-			<b>Contacts</b>
+			<b>Dashboard</b>
 		</h2>
+
 		
-		<div id="loggedInDiv">
-			<span id="userName"></span><br />
-			<button type="button" id="logoutButton" class="buttons" onclick="doLogout();"> Log Out </button>
+		<div id="addContact">
+			<form id="display">
+				<input type="text" id="contactFirstName" placeholder="First Name" required>
+				<input type="text" id="contactLastName" placeholder="Last Name" required>
+				<input type="text" id="contactPhoneNum" placeholder="XXX-XXX-XXXX" required>
+				<input type="text" id="contactEmail" placeholder="name@email.com" required>
+				<button type="button" id="addContactButton" class="buttons font" onclick="addFunc();"> Add Contact </button>
+				<span id="contactAddResult"></span>
+			</form>
 		</div>
 
 		<div id="accessUIDiv">
 			<br />
-		
-			<input type="text" id="searchText" placeholder="Contact To Search For"/>
-			<button type="button" id="searchContactButton" class="buttons" onclick="searchColor();"> Search Contact </button><br />
+			<div class = "box">
+			<input type="text" id="searchBox" placeholder="Press Enter to Search"/>
+			<i class="fas fa-search search-icon" id="searchContactButton" onkeyup="searchFunc();"></i>
 			<span id="contactSearchResult"></span>
-			<p id="contactList">
-			</p><br /><br />
-		
-			<input type="text" id="contactText" placeholder="Contact To Add">
-			<button type="button" id="addContactButton" class="buttons" onclick="addContact();"> Add Contact </button><br />
-			<span id="contactAddResult"></span>
+			<p id="contactList"></p><br />
+			</div>
 		</div>
+
+		<script>
+			document.getElementById("searchBox").addEventListener("keyup", function(event) {
+				if (event.key === "Enter") {
+					searchFunc(); 
+				}
+			});
+		</script>
+
+		<body onload="showContacts()">
+			<table id="contactsTable">
+				<thead>
+					<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Email</th>
+						<th>Phone</th>
+						<th>Edit/Delete</th>
+					</tr>
+				</thead>
+				<tbody id="tbody"></tbody>
+			</table>
+		</body>
+
+		<br />
+			<button type="button" id="logoutButton" class="buttons" onclick="logoutFunc();"> Log Out </button>
+		<br />
+
 	</body>
 </html>
