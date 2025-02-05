@@ -13,30 +13,21 @@ if ($conn->connect_error)
 
 // Get the form data
 $ID = $inData["ID"];
-$firstName = $inData["FirstName"];
-$lastName = $inData["LastName"];
-$phone = $inData["Phone"];
-$email = $inData["Email"];
+$FirstName = $inData["FirstName"];
+$LastName = $inData["LastName"];
+$Phone = $inData["Phone"];
+$Email = $inData["Email"];
 
 // Prepare the SQL statement to update the contact
 
 // Prepare and bind
 $stmt = $conn->prepare("UPDATE Contacts SET FirstName=?, LastName=?, Phone=?, Email=? WHERE ID=?");
-$stmt->bind_param("ssssi", $firstName, $lastName, $phone, $email, $ID);
-
-if ($stmt->execute()) 
-	if ($stmt->affected_rows > 0) {
-{
-    echo "Contact updated successfully";
-}
-} else 
-{
-    returnWithError("Error updating contact");
-}
-
+$stmt->bind_param("ssssi", $FirstName, $LastName, $Phone, $Email, $ID);
+$stmt->execute();
 $stmt->close();
-
 $conn->close();
+
+sendResultInfoAsJson($row['ID']);
 
 function getRequestInfo()
 {

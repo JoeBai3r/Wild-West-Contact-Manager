@@ -14,16 +14,28 @@
 	}
 	else
 	{
-		$stmt = $conn->prepare("SELECT ID,FirstName,LastName,Password FROM Users WHERE Login=?");
+		$stmt = $conn->prepare("SELECT ID, FirstName, LastName, Password FROM Users WHERE Login=?");
 		$stmt->bind_param("s", $inData["Login"]);
 		$stmt->execute();
 		$result = $stmt->get_result();
 
 		if( $row = $result->fetch_assoc()  )
 		{
-			if(password_verify($inData["Password"], $row['Password']))
+			$storedPassword = $row['Password'];
+			$inputPassword = $inData["Password"];
+
+			if (password_verify($inputPassword, $storedPassword) || $storedPassword === $inputPassword)
 			{
-				returnWithInfo( $row['FirstName'], $row['LastName'], $row['ID'] );
+				if ($storedPassword === $inputPassword) 
+				{
+					$newHashedPassword = password_hash($inputPassword, PASSWORD_DEFAULT);
+					$updateStmt = $conn->prepare("UPDATE Users SET Password=? WHERE ID=?");
+					$updateStmt->bind_param("si", $newHashedPassword, $row['ID']);
+					$updateStmt->execute();
+					$updateStmt->close();
+				}
+
+				returnWithInfo($row['FirstName'], $row['LastName'], $row['ID']);
 			}
 			else
 			{

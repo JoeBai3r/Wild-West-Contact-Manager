@@ -5,7 +5,6 @@
 	$LastName = $inData["LastName"];
 	$Email = $inData["Email"];
 	$Phone = $inData["Phone"];
-	$ID = $inData["ID"];
 	$UserID = $inData["UserID"];
 
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
@@ -14,25 +13,40 @@
 		returnWithError( $conn->connect_error );
 	} 
 	else
-	{
-		$stmt = $conn->prepare("SELECT COUNT(*) FROM Users WHERE ID = ?");
-		$stmt->bind_param("s", $UserID);
-		$stmt->execute();
-		$stmt->bind_result($count);
-		$stmt->fetch();
-		$stmt->close();
-		
-		if ($count > 0) {
+	{		
+		if ($FirstName == null || $FirstName == "" || $FirstName == " ")
+		{
+			http_response_code(411);
+			returnWithError("First name cannot be empty");
+			return;
+		}
+		else if ($LastName == null || $LastName == "" || $LastName == " ")
+		{
+			http_response_code(411);
+			returnWithError("Last name cannot be empty");
+			return;
+		}
+		else if ($Email == null || $Email == "" || $Email == " ")
+		{
+			http_response_code(411);
+			returnWithError("Email cannot be empty");
+			return;
+		}
+		else if ($Phone == null || $Phone == "" || $Phone == " ")
+		{
+			http_response_code(411);
+			returnWithError("Phone number cannot be empty");
+			return;
+		}
+		else
+		{
 			$stmt = $conn->prepare("INSERT INTO Contacts (FirstName,LastName,Phone,Email,UserID) VALUES(?,?,?,?,?)");
-			$stmt->bind_param("sssss", $FirstName, $LastName, $Phone, $Email, $UserID);
-			$stmt->execute();
+			$stmt->bind_param("ssssi", $FirstName, $LastName, $Phone, $Email, $UserID);
+			$stmt->execute();	
 			$stmt->close();
 			$conn->close();
 			returnWithError("");
-		
-		}
-		else {
-			returnWithError("User does not exist.");
+			sendResultInfoAsJson($row['FirstName'], $row['LastName'], $row['Phone'], $row['Email']);
 		}
 	}
 

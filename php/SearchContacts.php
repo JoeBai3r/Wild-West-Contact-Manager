@@ -14,7 +14,7 @@
 	{
 		$stmt = $conn->prepare("select * from Contacts where (FirstName like ? OR LastName like ? OR Phone like ? OR Email like ?) and UserID=?");
 		$colorName = "%" . $inData["search"] . "%";
-		$stmt->bind_param("sssss", $colorName, $colorName, $colorName, $colorName, $inData["UserID"]);
+		$stmt->bind_param("ssssi", $colorName, $colorName, $colorName, $colorName, $inData["UserID"]);
 		$stmt->execute();
 		
 		$result = $stmt->get_result();
@@ -30,13 +30,15 @@
 			$searchResults .= '{"FirstName" : "' . $row["FirstName"]. '", 
 			"LastName" : "' . $row["LastName"]. '", 
 			"Phone" : "' . $row["Phone"]. '",
-			"Email" : "' . $row["Email"]. '"}';
+			"Email" : "' . $row["Email"]. '",
+			"ID" : "' . $row["ID"]. '"}';
 
 		}
 		
 		if( $searchCount == 0 )
 		{
-			returnWithError( "No Records Found" );
+			http_response_code(414);
+			//returnWithError( "No Records Found" );
 		}
 		else
 		{
